@@ -671,6 +671,10 @@ class pronsole(cmd.Cmd):
         Updates are made in the same file position.
         Additions are made to the end of the file.
         """
+        # neutralize this, because we don't want arbitrary values,
+        # set by one of many users in our lab, to end up as defaults
+        # - incl. accidental serial port changes
+        return
         rci, rco = None, None
         if definition != "" and not definition.endswith("\n"):
             definition += "\n"
