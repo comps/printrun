@@ -854,6 +854,10 @@ class pronsole(cmd.Cmd):
 
     def scanserial(self):
         """scan for available ports. return a list of device names."""
+        # disable this, because it easily finds ports of other printers
+        # and allows the user to connect to them, breaking a print-in-progress
+        # from another instance of Pronterface
+        return []
         baselist = []
         if os.name == "nt":
             try:
